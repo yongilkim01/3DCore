@@ -41,8 +41,8 @@ public:
 protected:
 
 private:
-	short sizeX_ = 0;
-	short sizeY_ = 0;
+	short xChars_ = 0;
+	short yChars_ = 0;
 	short width_ = 0;
 	short height_ = 0;
 	short fontWidth_ = 0;
@@ -50,7 +50,7 @@ private:
 
 	const HANDLE* hConsoleOutput_ = nullptr;
 
-	CONSOLE_SCREEN_BUFFER_INFOEX backBuffer_;
+	CONSOLE_SCREEN_BUFFER_INFOEX consoleScreenBuffer_;
 	CHAR_INFO* pScreenBuffer_ = nullptr;
 
 	unsigned long palette_[16] = { 0 };

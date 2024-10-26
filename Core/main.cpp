@@ -2,6 +2,8 @@
 #include <Windows.h>
 #include <stdint.h>
 
+#include "Screen.h"
+
 void SetSmallestFont(HANDLE* hConsoleOutput, uint8_t fontWidth, uint8_t fontHeight, const wchar_t* fontName);
 void SetNormalFont(HANDLE* hConsoleOutput);
 
@@ -19,11 +21,14 @@ int main()
 
 	SetConsoleTitle(TEXT("3D Core project"));
 
-	int windth = 800;
+	int width = 800;
 	int height = 600;
 
-	uint8_t fontWidth = 4;
-	uint8_t fontHeight = 6;
+	//uint8_t fontWidth = 4;
+	//uint8_t fontHeight = 6;
+
+	unsigned char fontWidth = 4;
+	unsigned char fontHeight = 6;
 	
 	const unsigned long defaultPalette[16] = 
 	{
@@ -37,6 +42,14 @@ int main()
 	const wchar_t* fontName = L"Raster Fonts";
 
 	SetSmallestFont(&hConsoleOutput, fontWidth, fontHeight, fontName);
+
+	Screen screen = Screen(width, height, fontWidth, fontHeight, palette, &hConsoleOutput);
+	int IsConsoleScreenBufferSet =  SetConsoleScreenBufferInfoEx(hConsoleOutput, screen.GetConsoleScreenBuffer());
+
+	if (IsConsoleScreenBufferSet == 0)
+	{
+		printf_s("console screen buffer setting is failed!!\n");
+	}
 
 	//printf_s("Hello World!");
 
