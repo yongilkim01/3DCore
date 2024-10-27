@@ -51,7 +51,7 @@ int main()
 		printf_s("console screen buffer setting is failed!!\n");
 	}
 
-	//printf_s("Hello World!");
+	screen.SetPixel(15, 15, '\x3');
 
 	return 0;
 }
@@ -71,7 +71,7 @@ void SetSmallestFont(HANDLE* hConsoleOutput, uint8_t fontWidth, uint8_t fontHeig
 
 	if (isFontSetting != 0)
 	{
-		printf_s("font setting is complete!!\n");
+		//printf_s("font setting is complete!!\n");
 	}
 	else
 	{
