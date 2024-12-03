@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="PreCompile.h">
+      <Filter>PreCompile</Filter>
+    </ClInclude>
+    <ClInclude Include="EduContentsCore.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGameMode.h">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>ContentsObject\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayMap.h">
+      <Filter>ContentsObject\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentsEnum.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleGameMode.h">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>ContentsObject\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="ATileMap.h">
+      <Filter>TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapGameMode.h">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="NewPlayer.h">
+      <Filter>ContentsObject\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>ContentsObject\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>ContentsObject\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>ContentsObject\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftRendererGameMode.h">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftRenderPlayer.h">
+      <Filter>ContentsObject\Soft</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PreCompile.cpp">
+      <Filter>PreCompile</Filter>
+    </ClCompile>
+    <ClCompile Include="EduContentsCore.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGameMode.cpp">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>ContentsObject\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayMap.cpp">
+      <Filter>ContentsObject\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="ContentsEnum.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleGameMode.cpp">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>ContentsObject\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="ATileMap.cpp">
+      <Filter>TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapGameMode.cpp">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="NewPlayer.cpp">
+      <Filter>ContentsObject\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>ContentsObject\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>ContentsObject\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>ContentsObject\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftRendererGameMode.cpp">
+      <Filter>ContentsObject\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftRenderPlayer.cpp">
+      <Filter>ContentsObject\Soft</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="PreCompile">
+      <UniqueIdentifier>{a87e0078-f3c8-4a43-bfec-c101c9a404c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ContentsObject">
+      <UniqueIdentifier>{26872fba-4e70-4b03-abcf-75a854643a48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{a1cc2534-c12e-4252-9e7c-aafe5e50e75c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ContentsObject\GameMode">
+      <UniqueIdentifier>{853cd216-882a-48b9-a584-a08e11d0a3b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ContentsObject\Play">
+      <UniqueIdentifier>{25b203e5-44e3-4be7-8e4a-69c99e422435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ContentsObject\Global">
+      <UniqueIdentifier>{510c5f9b-b0b2-438d-8751-8d88d6c951ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{2852640c-2c84-4426-b62b-8e1b954fa8ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ContentsObject\Title">
+      <UniqueIdentifier>{0968278a-21c6-494b-901e-ba95b20d1de3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TileMap">
+      <UniqueIdentifier>{f3fe4416-a80c-4962-92a1-45cd6e4e4dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ContentsObject\Soft">
+      <UniqueIdentifier>{dc4f1221-42cc-4d2a-aca3-3793ccd63ebb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
