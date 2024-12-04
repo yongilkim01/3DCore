@@ -133,10 +133,6 @@ void EduContentsCore::BeginPlay()
 	}
 
 
-	
-
-
-
 	UEngineAPICore::GetCore()->GetMainWindow().SetWindowTitle("EduWindow");
 
 	// 이거 꼭 호출해줘야 합니다.

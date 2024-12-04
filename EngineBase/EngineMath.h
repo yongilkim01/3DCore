@@ -5,6 +5,8 @@
 // FVector4D xyzw
 // FVector4D == FVector;
 
+// #include <DirectXMath.h>
+
 
 class UEngineMath
 {
@@ -78,6 +80,12 @@ public:
 
 	}
 
+	FVector(float _X, float _Y, float _Z) : X(_X), Y(_Y), Z(_Z), W(1.0f)
+	{
+
+	}
+
+
 	FVector(int _X, int _Y) : X(static_cast<float>(_X)), Y(static_cast<float>(_Y))
 	{
 
@@ -87,6 +95,52 @@ public:
 	{
 
 	}
+
+
+	static FVector Normalize(FVector _Value)
+	{
+		_Value.Normalize();
+		return _Value;
+	}
+
+	// 360도 개념으로 넣어줘라.
+	static FVector AngleToVectorDeg(float _Angle)
+	{
+		// 360분법을 => 라디안으로 바꾸는 값을 만들어야 한다.
+		// 360 => 6.28
+
+		// 라디안 각도체계를 기반으로 sinf(_Angle) cosf
+
+		// 근본함수는 라디안 개념으로 만들고
+		return AngleToVectorRad(_Angle * UEngineMath::D2R);
+	}
+
+
+	static FVector Lerp(FVector _A, FVector _B, float _Alpha)
+	{
+		FVector Result;
+		_Alpha = UEngineMath::Clamp(_Alpha, 0.0f, 1.0f);
+		Result.X = UEngineMath::Lerp(_A.X, _B.X, _Alpha);
+		Result.Y = UEngineMath::Lerp(_A.Y, _B.Y, _Alpha);
+		return Result;
+	}
+
+	//          Rad 라디안을 넣어주면 
+	// 여기에서 나온 결과값이 리턴해줄수 있는건
+	// 길이가 1인 벡터이다.
+	// static입니까?
+	static FVector AngleToVectorRad(float _Angle)
+	{
+		// 특정 각도를 가리키는 벡터를 만들수 있다고 해죠?
+		// 벡터 길이와 방향을 생각해라.
+		// 방향은 정해졌는데 길이는 1인 벡터를 만들어내는 겁니다.
+
+		// 0도일때의 밑변      0도일대의 높이
+
+		// cosf(_Angle) = 밑변
+		return { cosf(_Angle), sinf(_Angle) };
+	}
+
 
 	int iX() const
 	{
@@ -132,35 +186,6 @@ public:
 
 	class FIntPoint ConvertToPoint() const;
 
-	static FVector Normalize(FVector _Value)
-	{
-		_Value.Normalize();
-		return _Value;
-	}
-
-	// 360도 개념으로 넣어줘라.
-	static FVector AngleToVectorDeg(float _Angle)
-	{
-		// 360분법을 => 라디안으로 바꾸는 값을 만들어야 한다.
-		// 360 => 6.28
-
-		// 라디안 각도체계를 기반으로 sinf(_Angle) cosf
-
-		// 근본함수는 라디안 개념으로 만들고
-		return AngleToVectorRad(_Angle * UEngineMath::D2R);
-	}
-
-	//          Rad 라디안을 넣어주면 
-	static FVector AngleToVectorRad(float _Angle)
-	{
-		// 특정 각도를 가리키는 벡터를 만들수 있다고 해죠?
-		// 벡터 길이와 방향을 생각해라.
-		// 방향은 정해졌는데 길이는 1인 벡터를 만들어내는 겁니다.
-
-		// 0도일때의 밑변      0도일대의 높이
-		return { cosf(_Angle), sinf(_Angle) };
-	}
-
 	void Normalize()
 	{
 		float Len = Length();
@@ -170,6 +195,85 @@ public:
 			Y = Y / Len;
 		}
 		return;
+	}
+
+	// 
+	void RotationXDeg(float _Angle)
+	{
+		RotationXRad(_Angle * UEngineMath::D2R);
+	}
+
+	void RotationXRad(float _Angle)
+	{
+		FVector Copy = *this;
+		Z = (Copy.Z * cosf(_Angle)) - (Copy.Y * sinf(_Angle));
+		Y = (Copy.Z * sinf(_Angle)) + (Copy.Y * cosf(_Angle));
+	}
+
+	FVector RotationXDegReturn(float _Angle)
+	{
+		return RotationXRadReturn(_Angle * UEngineMath::D2R);
+	}
+
+	FVector RotationXRadReturn(float _Angle)
+	{
+		FVector Result = *this;
+		Result.Z = (Z * cosf(_Angle)) - (Y * sinf(_Angle));
+		Result.Y = (Z * sinf(_Angle)) + (Y * cosf(_Angle));
+		return Result;
+	}
+
+
+	// 
+	void RotationYDeg(float _Angle)
+	{
+		RotationYRad(_Angle * UEngineMath::D2R);
+	}
+
+	void RotationYRad(float _Angle)
+	{
+		FVector Copy = *this;
+		X = (Copy.X * cosf(_Angle)) - (Copy.Z * sinf(_Angle));
+		Z = (Copy.X * sinf(_Angle)) + (Copy.Z * cosf(_Angle));
+	}
+
+	FVector RotationYDegReturn(float _Angle)
+	{
+		return RotationYRadReturn(_Angle * UEngineMath::D2R);
+	}
+
+	FVector RotationYRadReturn(float _Angle)
+	{
+		FVector Result = *this;
+		Result.X = (X * cosf(_Angle)) - (Z * sinf(_Angle));
+		Result.Z = (X * sinf(_Angle)) + (Z * cosf(_Angle));
+		return Result;
+	}
+
+	// 
+	void RotationZDeg(float _Angle)
+	{
+		RotationZRad(_Angle * UEngineMath::D2R);
+	}
+
+	void RotationZRad(float _Angle)
+	{
+		FVector Copy = *this;
+		X = (Copy.X * cosf(_Angle)) - (Copy.Y * sinf(_Angle));
+		Y = (Copy.X * sinf(_Angle)) + (Copy.Y * cosf(_Angle));
+	}
+
+	FVector RotationZDegReturn(float _Angle)
+	{
+		return RotationZRadReturn(_Angle * UEngineMath::D2R);
+	}
+
+	FVector RotationZRadReturn(float _Angle)
+	{
+		FVector Result = *this;
+		Result.X = (X * cosf(_Angle)) - (Y * sinf(_Angle));
+		Result.Y = (X * sinf(_Angle)) + (Y * cosf(_Angle));
+		return Result;
 	}
 
 	float Dot(const FVector& other) const
@@ -285,15 +389,6 @@ public:
 		Stream += std::to_string(Y);
 		Stream += "]";
 		return Stream;
-	}
-
-	static FVector Lerp(FVector _A, FVector _B, float _Alpha)
-	{
-		FVector Result;
-		_Alpha = UEngineMath::Clamp(_Alpha, 0.0f, 1.0f);
-		Result.X = UEngineMath::Lerp(_A.X, _B.X, _Alpha);
-		Result.Y = UEngineMath::Lerp(_A.Y, _B.Y, _Alpha);
-		return Result;
 	}
 
 };
@@ -473,3 +568,5 @@ public:
 
 	}
 };
+
+using float4 = FVector;

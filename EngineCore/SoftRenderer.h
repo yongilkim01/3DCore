@@ -2,6 +2,13 @@
 #include <EngineBase/EngineMath.h>
 #include "Renderer.h"
 
+class FirstMesh
+{
+public:
+	// 삼각형       점
+	std::vector<std::vector<FVector>> Vertexs;
+	// std::vector<FVector> 1차원 배열이어야 한다.
+};
 
 // 액터의 위치와 이런건 전혀... 의미 없습니다
 // 
@@ -32,5 +39,17 @@ private:
 
 	std::list<FTransform> CosG;
 
+	int Select;
+
+	FirstMesh BoxMesh;
+
+
+	// 크자이
+	// 크기
+	FVector Scale = { 2, 2.5, 1.5 };
+	// 자전
+	FVector Roation = { 0, 0, 0 };
+	// 이동
+	FVector Position = { 300, 300 };
 };
 
